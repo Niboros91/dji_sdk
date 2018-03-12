@@ -1,0 +1,19 @@
+<launch>
+    <node pkg="dji_sdk" type="dji_sdk_node" name="dji_sdk" output="screen">
+    <!-- node parameters -->
+    <param name="serial_name" type="string" value="/dev/ttyUSB0"/>
+    <param name="baud_rate" type="int" value="921600"/>
+    <param name="app_id" type="int" value="1051468"/>
+    <param name="app_version" type="int" value="1"/>
+    <param name="align_time" type="bool" value="false"/>
+    <param name="enc_key" type="string" value="635879e6184e9279c48b1def71fd8d6a3a18fb39eef9a976e6855ad7b3f3a5a9"/>
+    <param name="use_broadcast" type="bool" value="false"/>
+    </node>
+
+<!-- node to be used as rosbag -->
+    <node pkg="rosbag" type="record" args="-o ~/Desktop/ /dji_sdk/flight_status" name="record" output="screen"/>
+
+<!-- node to be used to get parameters -->
+
+	
+</launch>
